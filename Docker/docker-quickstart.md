@@ -111,7 +111,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
 
 ## 3. Example: setting up linux environment and running jupyter notebook
 
-`nycdsa/linus-toolkits` is a Linux (Ubuntu 16.04) based docker image with Python 3, MySQL, and Jupyter notebook installed.
+[`nycdsa/linux-toolkits`](https://hub.docker.com/r/nycdsa/linux-toolkits/) is a Linux (Ubuntu 16.04) based docker image with Python 3, MySQL, and Jupyter notebook installed.
 
 1. Pull image `nycdsa/linux-toolkits` from Docker hub. 
 
