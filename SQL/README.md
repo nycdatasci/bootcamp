@@ -31,7 +31,7 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
   - Port: 3306 [or 3307 if mapping was set to 3307]
   - Username: ubuntu
 
-  ![mysql_connection](https://github.com/nycdatasci/bootcamp/blob/master/images/mysql_connection.png?raw=true)
+  ![mysql_connection](https://github.com/nycdatasci/bootcamp/blob/master/images/mysql_connection.png?raw=true | width=400)
 
 2. Click *Test Connection* to test; click *OK* to save. 
 3. Then click the connection to connect.
