@@ -10,7 +10,7 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
   ```
   docker run -it --rm \
   -p 3306:3306 \
-  nycdsa/linux-toolkit
+  nycdsa/linux-toolkits
   ```
   
   Note: if you have MySQL service running locally, you may need to change the port mapping to `-p 3307:3306`
