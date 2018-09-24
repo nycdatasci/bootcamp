@@ -149,3 +149,5 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
 4. Run `jupyter notebook` from the container and copy the URL to your browser:
   - For MAC/Windows users: http://127.0.0.1:8888
   - For Docker Toolbox user: http://[docker-machine ip from step 2]:8888
+
+5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook, type `exit` and hit *ENTER* will stop the container. 
