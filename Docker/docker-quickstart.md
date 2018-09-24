@@ -41,7 +41,7 @@ If you already know how to use it, you can skip this part and jump to **3. Examp
   - If you are using Docker Toolbox, please start from the **Docker QuickStart Terminal** and follow the same instruction for Mac because the terminal is using bash. 
   
 - For docker for Mac/Windows, the docker IP is `localhost` or `127.0.0.1`. If you are using Docker toolbox, your IP address is the VM's IP, which can be found by running the command below inside Docker QuickStart Terminal: 
-  >```
+  ```
   docker-machine ip
   ```
 
@@ -51,7 +51,7 @@ To run an container, you need to download the image first. Most popular images a
 
 Open the command line interface (CLI) that's available to you, (**terminal** for MAC users, **Command Prompt** for Windows users, and **Docker QuickStart Terminal** for Docker Toolbox users) and run:
 
->```
+```
 docker pull <docker IMAGE>
 ```
 
@@ -59,13 +59,13 @@ It might take a while to download the image depending on the size of the images 
 
 Once the image is downloaded, you can check the image's IMAGE ID and REPOSITORY by executing the following command:
 
->```
+```
 docker image ls
 ```
 
 For images that are no longer needed, you can delete them from your computer. To delete a docker image, first find its IMAGE ID (or REPOSITORY) by running the command above, then do:
 
->```
+```
 docker image rm -f <IMAGE ID>
 ```
 
@@ -73,7 +73,7 @@ docker image rm -f <IMAGE ID>
 
 Run the following command in your CLI to start a docker container:
 
-> ```
+```
 docker run -it --rm \
 -p hostPort:containerPort \
 -v host-src:container-dest \
@@ -98,14 +98,16 @@ To stop a container you simple type `exit` inside a container, and it will autom
 If you didn't use `--rm` flag when you start a container, then you need to manually remove it. 
 
 - to remove a stopped container, you first need to find the CONTAINER ID via:
->```
-docker ps -a
-```
+
+  ```
+  docker ps -a
+  ```
 
 - then run:
->```
-docker container rm -f <CONTAINER ID>
-```
+
+  ```
+  docker container rm -f <CONTAINER ID>
+  ```
 
 ## 3. Example: setting up linux environment and running jupyter notebook
 
@@ -113,27 +115,28 @@ docker container rm -f <CONTAINER ID>
 
 1. Pull image `nycdsa/linux-toolkits` from Docker hub. 
 
->```
-docker pull nycdsa/linux-toolkits
-```
+  ```
+  docker pull nycdsa/linux-toolkits
+  ```
 
 2. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container:
 
   - MAC and Docker Toolbox:
-  >```
-docker run -it --rm \
--p 8888:8888 \
--v $(pwd):/home/ubuntu/Workspace \
-nycdsa/linux-toolkit
-```
+
+  ```
+  docker run -it --rm \
+  -p 8888:8888 \
+  -v $(pwd):/home/ubuntu/Workspace \
+  nycdsa/linux-toolkit
+  ```
 
   - Windows:
-  >```
-docker run -it --rm ^
--p 8888:8888 ^
--v %cd%:/home/ubuntu/Workspace ^
-nycdsa/linux-toolkit
-```
+  ```
+  docker run -it --rm ^
+  -p 8888:8888 ^
+  -v %cd%:/home/ubuntu/Workspace ^
+  nycdsa/linux-toolkit
+  ```
 
 **Note**: `$(pwd)` or `%cd%` represents the current *working directory* on the host, and `-v` sync it with the directory `/home/ubuntu/Workspace` in your container.
 

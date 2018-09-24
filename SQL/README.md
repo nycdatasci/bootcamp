@@ -9,6 +9,6 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
 2. Change directory to the repository
 3. Run command:
 
-  >```
+  ```
   ./create_movies_db.sh
   ```
