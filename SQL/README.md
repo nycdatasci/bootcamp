@@ -25,7 +25,7 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
 
 ## MySQL Workbench Connection
 
-1. Click the `+` sign and fill in with the following information:
+1. Start MySQL Workbench and click the `+` sign next to *MySQL Connections* to open the Connection Tab, then fill in with the following information:
   - Connection Name: [anything]
   - Hostname: 127.0.0.1 [or docker-machine ip if using Docker Toolbox]
   - Port: 3306 [or 3307 if mapping was set to 3307]
@@ -33,5 +33,5 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
 
   ![mysql_connection](https://github.com/nycdatasci/bootcamp/blob/master/images/mysql_connection.png?raw=true)
 
-2. Click *Test Connection* to test; click *OK* to save. 
-3. Then click the connection to connect.
+2. Click *Test Connection* to test, then click *OK* to save. 
+3. Click the connection that you just created to connect.
