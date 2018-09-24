@@ -1,6 +1,8 @@
-# Docker Images 
+# nycdsa Docker Images
 
-[Docker QuickStart](https://github.com/nycdatasci/bootcamp/blob/master/Docker/docker-quickstart.md)
+To get started, please read [Docker QuickStart](https://github.com/nycdatasci/bootcamp/blob/master/Docker/docker-quickstart.md)
+
+Software versions:
 
 - nycdsa/linux-tookits
   - Ubuntu 16.04
