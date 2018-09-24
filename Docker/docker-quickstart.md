@@ -138,7 +138,9 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   nycdsa/linux-toolkits
   ```
 
-**Note**: `$(pwd)` or `%cd%` represents the current *working directory* on the host, and `-v` sync it with the directory `/home/ubuntu/Workspace` in your container.
+  **Note**: 
+    - `$(pwd)` or `%cd%` represents the current *working directory* on the host, and `-v` sync it with the directory `/home/ubuntu/Workspace` in your container.
+    - `\` and `^` are new line escape characters for MAC/Linux and Windows, respectively. If your command fits in one line then you should remove them.
 
 3. Run `jupyter notebook` from the container and copy the URL to your browser:
   - For MAC/Windows users: http://127.0.0.1:8888
