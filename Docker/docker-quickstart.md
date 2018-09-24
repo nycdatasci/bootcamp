@@ -127,7 +127,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   docker run -it --rm \
   -p 8888:8888 \
   -v $(pwd):/home/ubuntu/Workspace \
-  nycdsa/linux-toolkit
+  nycdsa/linux-toolkits
   ```
 
   - Windows:
@@ -135,7 +135,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   docker run -it --rm ^
   -p 8888:8888 ^
   -v %cd%:/home/ubuntu/Workspace ^
-  nycdsa/linux-toolkit
+  nycdsa/linux-toolkits
   ```
 
 **Note**: `$(pwd)` or `%cd%` represents the current *working directory* on the host, and `-v` sync it with the directory `/home/ubuntu/Workspace` in your container.
