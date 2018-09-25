@@ -8,7 +8,7 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
 1. Start Docker container with port mapping `-p 3306:3306`:
 
   ```
-  docker run -it --rm \
+  docker run -it \
   -p 3306:3306 \
   nycdsa/linux-toolkits
   ```
@@ -16,12 +16,51 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
   Note: if you have MySQL service running locally, you may need to change the port mapping to `-p 3307:3306`
   
 2. Git clone the repository
-3. Change directory to the repository
+
+  ```
+  git clone https://github.com/nycdatasci/bootcamp.git
+  ```
+  
+3. Change the working directory to the repository
+
+  ```
+  cd bootcamp/SQL/
+  ```
+  
 4. Run command:
 
   ```
   ./create_movies_db.sh
   ```
+  
+## Installation with Docker Toolbox:
+
+If you're using Docker Toolbox, you might have issue downloading with `git clone` inside the docker container. Then you should:
+
+1. `git clone` the repo to your computer first and then `cd` into the `bootcamp`  directory.
+
+2. Start docker container with mount option:
+  
+  - MAC OS
+  
+  ```
+  docker run -it \
+  -p 3306:3306 \
+  -v $(pwd):/home/ubuntu/bootcamp \
+  nycdsa/linux-toolkits
+  ```
+  
+  - Windows
+
+  ```
+  docker run -it \
+  -p 3306:3306 \
+  -v %cd%:/home/ubuntu/bootcamp \
+  nycdsa/linux-toolkits
+  ```
+  
+3. When the container is up, follow *step 3* and *step 4* from previous section to complete the database setup.
+ 
 
 ## MySQL Workbench Connection
 
