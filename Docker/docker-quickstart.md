@@ -118,8 +118,11 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   ```
   docker pull nycdsa/linux-toolkits
   ```
-
-2. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container:
+2. If you're using Docker Toolbox find your machine's IP and save for use in step 4.
+  ```
+  docker-machine ip
+  ```
+3. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container (you can also replace "$(pwd)" or "%cd%" with "~" if you would like to mount your home directory, you do not need to change your working directory if you do this):
 
   - MAC and Docker Toolbox:
 
@@ -143,6 +146,8 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   - `$(pwd)` or `%cd%` represents the current *working directory* on the host for MAC/Linux and Windows, respectively, and `-v` sync it with the directory `/home/ubuntu/Workspace` in your container.
   - `\` and `^` are new line escape characters for MAC/Linux and Windows, respectively. If your command fits in one line then you should remove them.
 
-3. Run `jupyter notebook` from the container and copy the URL to your browser:
+4. Run `jupyter notebook` from the container and copy the URL to your browser:
   - For MAC/Windows users: http://127.0.0.1:8888
-  - For Docker Toolbox user: http://[docker-machine ip]:8888
+  - For Docker Toolbox user: http://[docker-machine ip from step 2]:8888
+
+5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook, type `exit` and hit *ENTER* will stop the container. 
