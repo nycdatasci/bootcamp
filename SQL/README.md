@@ -10,28 +10,11 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
   ```
   docker run -it \
   -p 3306:3306 \
-  nycdsa/linux-toolkits
+  nycdsa/mysql-movies-db
   ```
   
   Note: if you have MySQL service running locally, you may need to change the port mapping to `-p 3307:3306`
   
-2. Git clone the repository
-
-  ```
-  git clone https://github.com/nycdatasci/bootcamp.git
-  ```
-  
-3. Change the working directory to the repository
-
-  ```
-  cd bootcamp/SQL/
-  ```
-  
-4. Run command:
-
-  ```
-  ./create_movies_db.sh
-  ```
   
 ## Installation with Docker Toolbox:
 
@@ -47,7 +30,7 @@ If you're using Docker Toolbox, you might have issue downloading with `git clone
   docker run -it \
   -p 3306:3306 \
   -v $(pwd):/home/ubuntu/bootcamp \
-  nycdsa/linux-toolkits
+  nycdsa/mysql-movies-db
   ```
   
   - Windows
@@ -56,7 +39,7 @@ If you're using Docker Toolbox, you might have issue downloading with `git clone
   docker run -it \
   -p 3306:3306 \
   -v %cd%:/home/ubuntu/bootcamp \
-  nycdsa/linux-toolkits
+  nycdsa/mysql-movies-db
   ```
   
 3. When the container is up, follow *step 3* and *step 4* from previous section to complete the database setup.
