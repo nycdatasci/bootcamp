@@ -124,12 +124,12 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   ```
 3. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container (you can also replace "$(pwd)" or "%cd%" with "~" if you would like to mount your home directory, you do not need to change your working directory if you do this):
 
-  - MAC and Docker Toolbox:
+  - MAC, Linux and Docker Toolbox:
 
   ```
   docker run -it --rm \
   -p 8888:8888 \
-  -v $(pwd):/home/ubuntu/Workspace \
+  -v "$(pwd)":/home/ubuntu/Workspace \
   nycdsa/linux-toolkits
   ```
 
