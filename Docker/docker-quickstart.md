@@ -29,7 +29,7 @@ To use docker you need to:
 4. you can then use the container just like use a computer with pre-built environment and apps
 5. to exit a running container, simply type `exit` and hit **ENTER** from the command line of that container
 
-If you already know how to use it, you can skip this part and jump to **3. Example: setting up linux environment and running jupyter notebook**
+If you already have docker installed on your computer and know how to use it, you can skip this part and jump to **3. Example: setting up linux environment and running jupyter notebook**
 
 ### 2.1.a Install Docker
 
@@ -83,22 +83,23 @@ docker image rm <IMAGE ID>
 
 ### 2.3 Run a Container
 
-Run the following command in your CLI to start a docker container:
+The command to run a docker container can include different options:
 
 ```
-docker run -it --rm \
+docker run -it -d --rm \
 -p hostPort:containerPort \
 -v host-src:container-dest \
 <docker IMAGE> 
 bash
 ```
 
-Flags:
+Options:
 - `-it` runs a container in interactive processes.
-- `--rm`(optional) removes the container when it exits or when the daemon exits.
-- `-p hostPort:containerPort`(optional) forwards a container᾿s port to the host.
-- `-v host-src:container-dest`(optional) mounts a host directory the container so files can be shared between them. 
-- `bash` starts the command line of the container in the terminal. 
+- `-d` (optional) runs a container in the background in detached mode
+- `--rm` (optional) removes the container when it exits or when the daemon exits.
+- `-p hostPort:containerPort` (optional) forwards a container᾿s port to the host.
+- `-v host-src:container-dest` (optional) mounts a host directory the container so files can be shared between them. 
+- `bash` (optional) starts the command line of the container in the terminal. 
   - Depending how the image was built, you may or may not need it.
 
 ### 2.4 Stop a container
@@ -123,7 +124,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
 
 ## 3. Example: setting up linux environment and running jupyter notebook
 
-[`nycdsa/linux-toolkits`](https://hub.docker.com/r/nycdsa/linux-toolkits/) is a Linux (Ubuntu 16.04) based docker image with Python 3, MySQL, and Jupyter notebook installed.
+[`nycdsa/linux-toolkits`](https://hub.docker.com/r/nycdsa/linux-toolkits/) is a Linux (Ubuntu 16.04) based docker image with Python 3, MySQL, and Jupyter notebook installed. In this example we will start a container by executing the image and then run a jupyter notebook inside the container and access it from the host machine.
 
 1. Pull image `nycdsa/linux-toolkits` from Docker hub. 
 
@@ -137,12 +138,12 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   docker-machine ip
   ```
 
-3. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container:
+3. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and then run docker container:
 
   - MAC, Linux and Docker Toolbox:
 
   ```
-  docker run -it --rm \
+  docker run -it \
   -p 8888:8888 \
   -v "$(pwd)":/home/ubuntu/Workspace \
   nycdsa/linux-toolkits
@@ -151,23 +152,30 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   - Windows:
   
   ```
-  docker run -it --rm ^
+  docker run -it ^
   -p 8888:8888 ^
   -v %cd%:/home/ubuntu/Workspace ^
   nycdsa/linux-toolkits
   ```
 
-- **Note**: 
+  - **Note**:
   
-  - `$(pwd)` or `%cd%` represents the current *working directory* on the host for MAC/Linux and Windows, respectively, and `-v` sync it with the directory `/home/ubuntu/Workspace` in your container.
-  - `\` and `^` are new line escape characters for MAC/Linux and Windows, respectively. If your command fits in one line then you should remove them.
+    - `$(pwd)` or `%cd%` represents the current *working directory* on the host for MAC/Linux and Windows, respectively, and `-v` mounts it with the directory `/home/ubuntu/Workspace` in your container. It's not recommended to mount an important directory, e.g., your home directory or the root directory, to the container.
+    - `\` and `^` are new line escape characters for MAC/Linux and Windows, respectively. If your command fits in one line then you should remove them.
 
-4. Run `jupyter notebook` from the container and copy the URL to your browser:
+4. Run `jupyter notebook` inside the container and then copy the URL to your browser:
+
   - For MAC/Windows users: http://127.0.0.1:8888
-  - For Docker Toolbox user: http://[docker-machine ip from step 2]:8888
+  - For Docker Toolbox users: http://192.168.99.100:8888
+    - If the docker-machine uses a different IP, then replace the IP with what you find from step 2.
 
-5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook, type `exit` and hit *ENTER* will stop the container. 
+5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook, type `exit` and hit *ENTER* will stop the container.
 
+6. Once the container is stopped, remove it by finding it's ID and then executing:
+
+  ```
+  docker container rm <container id>
+  ```
 
 ## 4. Recap and cheat sheet
 
@@ -193,6 +201,7 @@ docker container ls                   # List all running containers
 docker container ls -a                # List all containers, even those not running
 docker container stop <container id>  # Gracefully stop the specified container
 docker container kill <container id>  # Force shutdown of the specified container
-docker container rm <container id>    # Remove specified container from this machine
+docker container rm <container id>    # Remove specified stopped container from this machine
+docker container rm -f <container id> # Force remove specified container from this machine
 docker container rm $(docker container ls -a -q) # Remove all stopped containers
 ```
