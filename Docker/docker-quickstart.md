@@ -84,7 +84,7 @@ docker image rm <IMAGE ID>
 
 ### 2.3 Run a Container
 
-The command to run a docker container can include different options:
+The command to run a docker container can include multiple options. Below shows the command for Mac, Linux and Docker Toolbox, For Windows machines you need to replace `\` with `^`.
 
 ```
 docker run -it -d --rm \
