@@ -109,7 +109,7 @@ To stop a container you simple type `exit` inside a container, and it will autom
 
 ### 2.5 Remove a stopped container
 
-If you didn't use `--rm` flag when you start a container, then you need to manually remove it. 
+If you didn't use `--rm` flag when you start a container, then you need to manually remove it after it being stopped. 
 
 - to remove a stopped container, you first need to find the CONTAINER ID via:
 
@@ -120,7 +120,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
 - then run:
 
   ```
-  docker container rm -f <CONTAINER ID>
+  docker container rm <CONTAINER ID>
   ```
 
 ## 3. Example: setting up linux environment and running jupyter notebook
@@ -170,7 +170,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   - For Docker Toolbox users: http://192.168.99.100:8888
     - If the docker-machine uses a different IP, then replace the IP with what you find from step 2.
 
-5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook, type `exit` and hit *ENTER* will stop the container.
+5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook. In the same CLI shell, type `exit` and hit *ENTER* will stop the container.
 
 6. Once the container is stopped, remove it by finding it's ID and then executing:
 
