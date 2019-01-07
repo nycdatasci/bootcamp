@@ -118,7 +118,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   ```
   docker pull nycdsa/linux-toolkits
   ```
-2. If you're using Docker Toolbox find your machine's IP and save for use in step 4.
+2. If you're using Docker Toolbox find your machine's IP (by default, it's `192.168.99.100`) and save for use in step 4.
   ```
   docker-machine ip
   ```
