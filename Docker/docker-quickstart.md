@@ -19,6 +19,8 @@ Docker is a computer program that runs software packages called "containers". Co
   - Once you have the image pulled on your computer, you can start the container from Docker engine
   - Containers isolate software from its environment and ensure that it works uniformly no matter where and when you run it.
 
+<img class="image" src="https://www.docker.com/sites/default/files/d8/2018-11/docker-containerized-and-vm-transparent-bg.png" height="300px" align="middle">
+
 ## 2. How to Use Docker
 
 To use docker you need to:
@@ -26,8 +28,7 @@ To use docker you need to:
 1. make sure Docker is installed and running on your system
 2. pull the image that contains the environment/applications you need
 3. start a container
-4. you can then use the container just like use a computer with pre-built environment and apps
-5. to exit a running container, simply type `exit` and hit **ENTER** from the command line of that container
+4. you can then use the container just like use a computer with pre-built environment and applications
 
 If you already have docker installed on your computer and know how to use it, you can skip this part and jump to **3. Example: setting up linux environment and running jupyter notebook**
 
@@ -46,7 +47,7 @@ If you already have docker installed on your computer and know how to use it, yo
   - When finish, double click the **Docker QuickStart Terminal** to start the interactive shell, which might take a few minutes to get ready.
   - When the shell is ready, follow the same instruction for Mac because the terminal is similar to bash. 
 
-- If you use Docker toolbox, your IP address is the VM's IP (by default, it's `192.168.99.100`), which can be found by running the command below inside Docker QuickStart Terminal: 
+- If you use Docker toolbox, your IP address is the VM's IP. By default, it's `192.168.99.100`, you can also find it by running the command below inside the Docker QuickStart Terminal: 
 
   ```
   docker-machine ip
