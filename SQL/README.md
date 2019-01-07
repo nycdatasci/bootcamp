@@ -1,5 +1,4 @@
-# movies_db
-
+# Movies Database (movies_db)
 
 A sample database includes three tables: `actors`, `directors` and `movies`. The data is available as .csv files under directory `movies-data`
 
@@ -7,13 +6,21 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
 
 1. Start Docker container with port mapping `-p 3306:3306`:
 
+  - MAC/Linux/Docker ToolBox
   ```
   docker run -it \
   -p 3306:3306 \
   nycdsa/mysql-movies-db
   ```
   
-  Note: if you have MySQL service running locally, you may need to change the port mapping to `-p 3307:3306`
+  - Windows
+  ```
+  docker run -it ^
+  -p 3306:3306 ^
+  nycdsa/mysql-movies-db
+  ```
+  
+  Note: if you have MySQL service running locally, the port 3306 might be occupied already and you should change the port mapping with `-p 3307:3306`.
   
   
 ## Installation with Docker Toolbox:
@@ -29,16 +36,16 @@ If you're using Docker Toolbox, you might have issue downloading with `git clone
   ```
   docker run -it \
   -p 3306:3306 \
-  -v $(pwd):/home/ubuntu/bootcamp \
+  -v "$(pwd)":/home/ubuntu/bootcamp \
   nycdsa/mysql-movies-db
   ```
   
   - Windows
 
   ```
-  docker run -it \
-  -p 3306:3306 \
-  -v %cd%:/home/ubuntu/bootcamp \
+  docker run -it ^
+  -p 3306:3306 ^
+  -v %cd%:/home/ubuntu/bootcamp ^
   nycdsa/mysql-movies-db
   ```
   
