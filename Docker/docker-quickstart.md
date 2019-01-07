@@ -31,20 +31,32 @@ To use docker you need to:
 
 If you already know how to use it, you can skip this part and jump to **3. Example: setting up linux environment and running jupyter notebook**
 
-### 2.1 Install Docker
+### 2.1.a Install Docker
 
 - Follow the <a href="https://docs.docker.com/install/" target="_blank">instruction</a> or the links below to install Docker:
   - [Install Docker for MAC](https://docs.docker.com/docker-for-mac/install/)
   - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
-- For older Mac and Windows systems that do not meet minimal system requirements for running Docker, you can install <a href="https://docs.docker.com/toolbox/toolbox_install_windows/" target="_blank">Docker Toolbox</a> which runs docker inside Oracle VirtualBox.
-  - If you are using Docker Toolbox, please start from the **Docker QuickStart Terminal** and follow the same instruction for Mac because the terminal is using bash. 
-  
-- For docker for Mac/Windows, the docker IP is `localhost` or `127.0.0.1`. If you are using Docker toolbox, your IP address is the VM's IP, which can be found by running the command below inside Docker QuickStart Terminal: 
+- If you use docker for Mac/Windows, the docker IP is `localhost` or `127.0.0.1`.
+
+### 2.1.b Install Docker Toolbox (Legacy desktop solution)
+
+- For older Mac and Windows systems that do not meet minimal system requirements for running Docker, you can install <a href="https://docs.docker.com/toolbox/toolbox_install_windows/" target="_blank">Docker Toolbox</a> which runs docker inside Oracle VM VirtualBox.
+  - To install Docker Toolbox, download and run the **Docker Toolbox Setup Wizard** and accept all the default settings.
+  - When finish, double click the **Docker QuickStart Terminal** to start the interactive shell, which might take a few minutes to get ready.
+  - When the shell is ready, follow the same instruction for Mac because the terminal is similar to bash. 
+
+- If you use Docker toolbox, your IP address is the VM's IP (by default, it's `192.168.99.100`), which can be found by running the command below inside Docker QuickStart Terminal: 
+
   ```
   docker-machine ip
   ```
 
+- Troubleshooting:
+  - If your Docker Toolbox takes too long to start, you might need to go to **Oracle VM VirtualBox** (installed along with your Docket Toolbox) and allowcate more Memory and Processors in **Settings** -> **System**. The recommended settings are: 
+    - Base Memory: 2 GB or more
+    - Processors: 2 or more
+  
 ### 2.2 Pull Docker Images
 
 To run an container, you need to download the image first. Most popular images are available on Docker Hub (similar to Github). Please first sign up on <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> and then start the docker service by clicking the lovely whale icon.
