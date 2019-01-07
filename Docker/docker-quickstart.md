@@ -78,7 +78,7 @@ docker image ls
 For images that are no longer needed, you can delete them from your computer. To delete a docker image, first find its IMAGE ID (or REPOSITORY) by running the command above, then do:
 
 ```
-docker image rm -f <IMAGE ID>
+docker image rm <IMAGE ID>
 ```
 
 ### 2.3 Run a Container
@@ -96,8 +96,8 @@ bash
 Flags:
 - `-it` runs a container in interactive processes.
 - `--rm`(optional) removes the container when it exits or when the daemon exits.
-- `-p hostPort:containerPort`(recommended) forwards a container᾿s port to the host.
-- `-v host-src:container-dest`(recommended) mounts a host directory the container so files can be shared between them. 
+- `-p hostPort:containerPort`(optional) forwards a container᾿s port to the host.
+- `-v host-src:container-dest`(optional) mounts a host directory the container so files can be shared between them. 
 - `bash` starts the command line of the container in the terminal. 
   - Depending how the image was built, you may or may not need it.
 
@@ -130,11 +130,14 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   ```
   docker pull nycdsa/linux-toolkits
   ```
-2. If you're using Docker Toolbox find your machine's IP (by default, it's `192.168.99.100`) and save for use in step 4.
+
+2. If you're using Docker Toolbox, then by default, the IP is `192.168.99.100`. You can also find it by executing:
+
   ```
   docker-machine ip
   ```
-3. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container (you can also replace "$(pwd)" or "%cd%" with "~" if you would like to mount your home directory, you do not need to change your working directory if you do this):
+
+3. Change your working directory to a directory where you want to be working in, e,g,. where data, notebooks, etc. are saved, and run docker container:
 
   - MAC, Linux and Docker Toolbox:
 
@@ -146,6 +149,7 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   ```
 
   - Windows:
+  
   ```
   docker run -it --rm ^
   -p 8888:8888 ^
@@ -163,3 +167,32 @@ If you didn't use `--rm` flag when you start a container, then you need to manua
   - For Docker Toolbox user: http://[docker-machine ip from step 2]:8888
 
 5. From the CLI window where Docker container is running, press `Ctrl+C` twice will quit the Jupyter notebook, type `exit` and hit *ENTER* will stop the container. 
+
+
+## 4. Recap and cheat sheet
+
+```
+## List Docker CLI commands
+docker image --help
+docker container --help
+
+## Docker image commands
+docker image ls -a              # List all images on this machine
+docker image rm <image id>      # Remove specified image from this machine
+docker image rm $(docker image ls -a -q)  # Remove all images from this machine
+
+## Start/enter a container
+docker run -it <image id>
+docker run -it -p 8888:8888 <image id>  # Map port 8888 to 8888
+docker run -it -v "$(pwd)":/home/ubuntu/workspace <image id> # bind host's wd to container's /home/ubuntu/workspace
+docker restart <container id>           # restart a container
+docker exec -it <container id> bash     # re-enter a container
+
+## Docker container commands
+docker container ls                   # List all running containers
+docker container ls -a                # List all containers, even those not running
+docker container stop <container id>  # Gracefully stop the specified container
+docker container kill <container id>  # Force shutdown of the specified container
+docker container rm <container id>    # Remove specified container from this machine
+docker container rm $(docker container ls -a -q) # Remove all stopped containers
+```
