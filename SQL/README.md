@@ -2,7 +2,7 @@
 
 A sample database includes three tables: `actors`, `directors` and `movies`. The data is available as .csv files under directory `movies-data`
 
-## Installation [with docker container]:
+## Installation:
 
 1. Start Docker container with port mapping `-p 3306:3306`:
 
@@ -20,18 +20,19 @@ A sample database includes three tables: `actors`, `directors` and `movies`. The
   nycdsa/mysql-movies-db
   ```
   
-  Note: if you have MySQL service running locally, the port 3306 might be occupied already and you should change the port mapping with `-p 3307:3306`.
-  
-  
-## Installation with Docker Toolbox:
+  Note: if you have MySQL service running locally, the port 3306 might be occupied already and you should change the port mapping to a different one, for example, `-p 3307:3306`.
 
-If you're using Docker Toolbox, you might have issue downloading with `git clone` inside the docker container. Then you should:
+2. (Optional) If you need the csv files, you can clone the repo by running `git clone` command inside the docker container.
+  
+## Installation with shared folder:
 
-1. `git clone` the repo to your computer first and then `cd` into the `bootcamp`  directory.
+If you have issue running `git clone` inside the docker container, you should download the repository on your host machine and mount it in your container:
+
+1. `git clone` the repo to your computer first and then change your working directory to `bootcamp` directory.
 
 2. Start docker container with mount option:
   
-  - MAC OS
+  - MAC/Linux/Docker ToolBox
   
   ```
   docker run -it \
@@ -48,15 +49,13 @@ If you're using Docker Toolbox, you might have issue downloading with `git clone
   -v %cd%:/home/ubuntu/bootcamp ^
   nycdsa/mysql-movies-db
   ```
-  
-3. When the container is up, follow *step 3* and *step 4* from previous section to complete the database setup.
- 
+  *Note*: if %cd% does not work for your windows machine, try to use the absolute directory. For example, `-v C:/User/nycdsa/bootcamp:/home/ubuntu/bootcamp`.
 
 ## MySQL Workbench Connection
 
 1. Start MySQL Workbench and click the `+` sign next to *MySQL Connections* to open the Connection Tab, then fill in with the following information:
   - Connection Name: [anything]
-  - Hostname: 127.0.0.1 [or docker-machine ip if using Docker Toolbox]
+  - Hostname: 127.0.0.1 [or docker-machine ip (default: 192.168.99.100) if using Docker Toolbox]
   - Port: 3306 [or 3307 if mapping was set to 3307]
   - Username: ubuntu
 
