@@ -14,7 +14,7 @@ if $(hadoop fs -test -d $data_dir/output) ; then
     hadoop fs -rm -r $data_dir/output
 fi
 # run streaming job
-hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-2.8.4.jar \
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
     -files mapper.py,reducer.py \
     -input $data_dir/input \
     -output $data_dir/output \
