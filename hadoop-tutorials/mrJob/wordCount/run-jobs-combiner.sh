@@ -14,5 +14,5 @@ if $(hadoop fs -test -d $data_dir/output) ; then
     hadoop fs -rm -r $data_dir/output
 fi
 # run mrJob
-python3 wordCountMRJob-2.py -r hadoop hdfs:///user/hadoop/$data_dir/input/* \
+python3 wordCountMRJob-combiner.py -r hadoop hdfs:///user/hadoop/$data_dir/input/* \
     --output-dir hdfs:///user/hadoop/$data_dir/output/
