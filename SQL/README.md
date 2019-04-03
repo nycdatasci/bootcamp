@@ -46,10 +46,10 @@ If you have issue running `git clone` inside the docker container, you should do
   ```
   docker run -it ^
   -p 3306:3306 ^
-  -v %cd%:/home/ubuntu/bootcamp ^
+  -v "%cd%":/home/ubuntu/bootcamp ^
   nycdsa/mysql-movies-db
   ```
-  *Note*: if %cd% does not work for your windows machine, try to use the absolute directory. For example, `-v C:/User/nycdsa/bootcamp:/home/ubuntu/bootcamp`.
+  *Note*: if `%cd%` does not work for your windows machine, try to use the absolute directory. For example, `-v "/User/nycdsa/bootcamp":/home/ubuntu/bootcamp` for the directory `C:\User\nycdsa\bootcamp`.
 
 ## MySQL Workbench Connection
 
